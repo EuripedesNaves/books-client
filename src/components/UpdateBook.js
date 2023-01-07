@@ -1,7 +1,8 @@
 import React, { useState } from 'react'
 import Utils from '../utils/Utils'
+import { useNavigate, useParams } from 'react-router-dom'
 
-export const AddBook = () => {
+export const UpdateBook = () => {
 
     const [title, setTitle] = useState('')
     const [author, setAuthor] = useState('')
@@ -9,18 +10,23 @@ export const AddBook = () => {
     const [releaseYear, setReleaseYear] = useState('')
     const [genre, setGenre] = useState('')
 
+    const { id } = useParams()
+    const navigate = useNavigate()
 
-    const handleAddBook = async () => {
+
+
+    const handleUpdateBook = async () => {
         try {
-            await Utils.addBook(title, author, synopsis, releaseYear, genre)
+            await Utils.updateBook(id, title, author, synopsis, releaseYear, genre)
             setTitle('')
             setAuthor('')
             setSynopsis('')
             setReleaseYear('')
             setGenre('')
+            navigate('/book')
             console.log('Completed')
         } catch (error) {
-            console.log(error, `Could not add a new Todo`)
+            console.log(error)
         }
     }
 
@@ -57,11 +63,9 @@ export const AddBook = () => {
                 value={genre}
                 onChange={(e) => setGenre(e.target.value)} />
 
-
-
-            <button type='submit' onClick={handleAddBook}>Add Livro</button>
+            <button type='submit' onClick={handleUpdateBook}>Update Livro</button>
         </div>
     )
 }
 
-export default AddBook
+export default UpdateBook

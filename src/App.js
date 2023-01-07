@@ -1,10 +1,13 @@
 
 import './App.css';
 import { Route, Routes } from 'react-router-dom'
-import Home from './pages/Home';
+import Login from './pages/Login'
 import Register from './pages/Register';
-import { Books } from './components/Books'
+import Books from './pages/Books';
 import BookAdd from './pages/BookAdd';
+import ChanceDataBook from './pages/ChangeDataBook';
+
+
 
 
 
@@ -13,10 +16,11 @@ function App() {
     <div className="App">
 
       <Routes>
-        <Route path='/' element={<Home/>}/>
+        <Route path='/' element={<Login/>}/>
+        <Route path='/register' element={<Register/>}/>
         <Route path='/add' element={<BookAdd/>}/>
         <Route path='/book' element={<Books/>}/>
-        <Route path='/register' element={<Register/>}/>
+        <Route path='/updateBook/:id' element={<ChanceDataBook/>}/>
       </Routes>
 
     </div>

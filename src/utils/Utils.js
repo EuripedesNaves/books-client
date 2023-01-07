@@ -26,6 +26,7 @@ class Api {
             }
         )
     }
+
     login = async (loginInfo) => {
         try {
             const { data } = await this.api.post('/login', loginInfo)
@@ -54,10 +55,9 @@ class Api {
         }
     }
 
-
-    getBook = async (title) => {
+    getBook = async (id, book) => {
         try {
-            const { data } = await this.api.get(`/uniqueBook/${title}`)
+            const { data } = await this.api.get(`/uniqueBook/${id}`, book)
             return data
         } catch (error) {
             console.log(error)
@@ -66,16 +66,16 @@ class Api {
 
     addBook = async (title, author, synopsis, releaseYear, genre) => {
         try {
-            const { data } = await this.api.post('/book', {title, author, synopsis, releaseYear, genre})
+            const { data } = await this.api.post('/book', { title, author, synopsis, releaseYear, genre })
             return data
         } catch (error) {
             console.log(error)
         }
     }
 
-    updateBook = async (id, book) => {
+    updateBook = async (id, title, author, synopsis, releaseYear, genre) => {
         try {
-            await this.api.put(`/updateBook/${id}`, book)
+            await this.api.put(`/updateBook/${id}`, {title, author, synopsis, releaseYear, genre})
         } catch (error) {
             console.log(error)
         }
@@ -84,6 +84,19 @@ class Api {
     deleteBook = async (id, book) => {
         try {
             await this.api.delete(`/deleteBook/${id}`, book)
+        } catch (error) {
+            console.log(error)
+        }
+    }
+
+    uploadImage = async (id, file) => {
+
+        const formData = new FormData()
+        formData.append('image', file)
+        try {
+            const { data } = await this.api.put(`/book/${id}/image-upload`, formData)
+            return data
+
         } catch (error) {
             console.log(error)
         }

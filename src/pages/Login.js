@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 import Utils from '../utils/Utils';
 
 export const Login = () => {
@@ -42,7 +42,7 @@ export const Login = () => {
                 onChange={(e) => setPassword(e.target.value)} />
 
             <button className='btn-login' type='submit'>Login</button>
-            {/* <p>Não possui uma conta?<Link to='/signup'><span>Signup</span></Link></p> */}
+            <p>Não possui uma conta?<Link to='/register'><span>Register</span></Link></p>
         </form>
     )
 }
