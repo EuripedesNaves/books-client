@@ -55,9 +55,9 @@ class Api {
         }
     }
 
-    getBook = async (id, book) => {
+    getBook = async (id) => {
         try {
-            const { data } = await this.api.get(`/uniqueBook/${id}`, book)
+            const { data } = await this.api.get(`/uniqueBook/${id}`)
             return data
         } catch (error) {
             console.log(error)

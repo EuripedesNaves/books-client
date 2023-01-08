@@ -30,7 +30,6 @@ export const UpdateBook = () => {
         }
     }
 
-
     return (
         <div className='form'>
             <input

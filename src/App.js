@@ -6,6 +6,7 @@ import Register from './pages/Register';
 import Books from './pages/Books';
 import BookAdd from './pages/BookAdd';
 import ChanceDataBook from './pages/ChangeDataBook';
+import { BookDetails } from './pages/BookDetails';
 
 
 
@@ -21,6 +22,7 @@ function App() {
         <Route path='/add' element={<BookAdd/>}/>
         <Route path='/book' element={<Books/>}/>
         <Route path='/updateBook/:id' element={<ChanceDataBook/>}/>
+        <Route path='/bookDetails/:id' element={<BookDetails/>}/>
       </Routes>
 
     </div>

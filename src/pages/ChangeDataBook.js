@@ -6,12 +6,9 @@ import UpdateImgBook from '../components/UpdateImgBook'
 function ChanceDataBook() {
   return (
     <div>
-      
       <h1> updateBook </h1>
-
       <UpdateBook/>
       <UpdateImgBook/>
-
     </div>
 
   )

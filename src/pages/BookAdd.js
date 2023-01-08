@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import Utils from '../utils/Utils'
+import { useNavigate } from 'react-router-dom'
 
 export const BookAdd = () => {
 
@@ -8,6 +9,8 @@ export const BookAdd = () => {
     const [synopsis, setSynopsis] = useState('')
     const [releaseYear, setReleaseYear] = useState('')
     const [genre, setGenre] = useState('')
+
+    const navigate = useNavigate();
 
 
     const handleAddBook = async () => {
@@ -18,6 +21,7 @@ export const BookAdd = () => {
             setSynopsis('')
             setReleaseYear('')
             setGenre('')
+            navigate('/book')
             console.log('Completed')
         } catch (error) {
             console.log(error)

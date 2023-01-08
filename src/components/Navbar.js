@@ -1,5 +1,4 @@
 import React from "react";
-
 import { useNavigate } from "react-router-dom";
 
 const Navbar = () => {
@@ -12,7 +11,7 @@ const Navbar = () => {
   return (
     <nav>
       <h3>
-    BOOKS
+   Navbar
       </h3>
   
       <button
