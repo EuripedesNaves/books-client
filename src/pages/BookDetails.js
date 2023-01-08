@@ -2,6 +2,7 @@ import React from "react";
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import Utils from '../utils/Utils';
+import Navbar from "../components/Navbar";
 
 export const BookDetails = () => {
     const { id } = useParams();
@@ -22,6 +23,7 @@ export const BookDetails = () => {
 
   return (
     <div>
+      <Navbar/>
     <h1>Detalhe Livro</h1>
     <img src={book.coverImage} alt={"Cover"} style={{ width: '10vw' }} />
     
@@ -30,7 +32,6 @@ export const BookDetails = () => {
     <span>{book.synopsis}</span>
     <span>{book.releaseYear}</span>
     <span>{book.genre}</span>
-
 
     </div>
   )

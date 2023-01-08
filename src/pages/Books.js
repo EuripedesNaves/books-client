@@ -2,11 +2,13 @@ import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import Utils from '../utils/Utils';
 import Navbar from "../components/Navbar";
+import { useNavigate } from 'react-router-dom'
 
 
 export const Books = ({ _id }) => {
 
   const [bookList, setBooks] = useState([]);
+  const navigate = useNavigate();
 
   const allBooks = async () => {
     try {
@@ -20,7 +22,7 @@ export const Books = ({ _id }) => {
   const deleteOneBook = async (_id) => {
     try {
       await Utils.deleteBook(_id)
-      document.location.reload(true);
+      navigate('/book')
     } catch (error) {
       console.error(error);
     }

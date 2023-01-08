@@ -4,8 +4,6 @@ import Utils from '../utils/Utils';
 import { useNavigate, useParams } from 'react-router-dom'
 
 
-
-
 const UpdateImgBook = () => {
 
     const [file, setFile] = useState(null)
