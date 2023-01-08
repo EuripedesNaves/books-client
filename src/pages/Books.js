@@ -22,7 +22,7 @@ export const Books = ({ _id }) => {
   const deleteOneBook = async (_id) => {
     try {
       await Utils.deleteBook(_id)
-      navigate('/book')
+      navigate('/add')
     } catch (error) {
       console.error(error);
     }
