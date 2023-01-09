@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import Utils from '../utils/Utils';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
+import '../Style/Register.css'
 
 export const Register = () => {
 
@@ -31,27 +32,36 @@ export const Register = () => {
     }   
 
     return (
-
-        <form onSubmit={handleSubmit}>
+        <div className='home'>
+        <nav className='navbar'>
+        <Link to={`/book`}>
+        <h3>
+          Books App
+        </h3>
+        </Link>
+        </nav>
+        <h1>Crie sua conta</h1>
+        <form className='form-box' onSubmit={handleSubmit}>
             <input
                 type="text"
-                placeholder='name'
+                placeholder='Qual seu nome?'
                 name='Name' value={name}
                 onChange={(e) => setName(e.target.value)} />
             <input
                 type="email"
-                placeholder='email'
+                placeholder='Qual seu email?'
                 name='email'
                 value={email}
                 onChange={(e) => setEmail(e.target.value)} />
             <input
                 type="password"
-                placeholder='password'
+                placeholder='Digite uma senha?'
                 name='Password' value={password}
                 onChange={(e) => setPassword(e.target.value)} />
 
-            <button className='btn-login' type='submit'>Register</button>
+            <button className='btn-register' type='submit'>Register</button>
         </form>
+        </div>
     )
 }
 

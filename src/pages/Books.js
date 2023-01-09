@@ -2,13 +2,13 @@ import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import Utils from '../utils/Utils';
 import Navbar from "../components/Navbar";
-import { useNavigate } from 'react-router-dom'
 
+import '../Style/Books.css'
 
 export const Books = ({ _id }) => {
 
   const [bookList, setBooks] = useState([]);
-  const navigate = useNavigate();
+ 
 
   const allBooks = async () => {
     try {
@@ -22,7 +22,6 @@ export const Books = ({ _id }) => {
   const deleteOneBook = async (_id) => {
     try {
       await Utils.deleteBook(_id)
-      navigate('/add')
     } catch (error) {
       console.error(error);
     }
@@ -34,26 +33,28 @@ export const Books = ({ _id }) => {
 
   return (
 
-    <div>
+    <div >
       <Navbar/>
-      <h1>Books</h1>
+
+      <div className="body">
       {bookList.map((book) => {
         return (
-          <div key={(book._id)}>
-            <img src={book.coverImage} alt={"Cover"} style={{ width: '10vw' }} />
-            <span>{book.title}</span>
+          <div className='body-element' key={(book._id)}>
+            <img className="imgCover" src={book.coverImage} alt={"Cover"} />
+            <p></p>
+            <span className="name">{book.title}</span>
+            <p></p>
             <Link to={`/updateBook/${book._id}`}>
-              <button>Update</button>
+              <button className="btn-update">Correção</button>
             </Link>
             <Link to={`/bookDetails/${book._id}`}>
-              <button>Details</button>
+              <button className="btn-details">Detalhes</button>
             </Link>
-            <button onClick={() => deleteOneBook(book._id)}>Delete</button>
-
+            <button className="btn-delete" onClick={() => deleteOneBook(book._id)}>Deletar</button>
           </div>
         )
       })}
-
+      </div>
     </div>
   )
 }

@@ -1,0 +1,26 @@
+.title {
+    background-color: beige;
+    font-size: 2vw;
+    margin-top: 2vw;
+    padding: 1vh;
+    align-items: center;
+
+}
+
+.imgCover{
+    margin: 1vw;
+    height:350px;
+    width:250px;
+}
+
+.btn-delete{
+    border-radius: 10px;
+    border-color: rgb(250, 97, 97);
+    font-size: 1.5vw;
+    background-color: rgb(250, 97, 97);
+    color: rgba(102, 0, 0, 0.822);
+    font-weight: bold;
+    padding: 0.5vw;
+}
+
+

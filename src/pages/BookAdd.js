@@ -1,6 +1,9 @@
 import React, { useState } from 'react'
 import Utils from '../utils/Utils'
 import { useNavigate } from 'react-router-dom'
+import Navbar from "../components/Navbar";
+
+import '../Style/BookAdd.css'
 
 export const BookAdd = () => {
 
@@ -30,38 +33,39 @@ export const BookAdd = () => {
 
 
     return (
-        <div className='form'>
-            <input
-                type="text"
-                placeholder='Título do livro'
-                value={title}
-                onChange={(e) => setTitle(e.target.value)} />
+        <div>
+            <Navbar/>
+            <div className='form-box'>
+                <h2>Dados do livro</h2>
+                <input
+                    type="text"
+                    placeholder='Título do livro (Obrigatório)'
+                    value={title}
+                    onChange={(e) => setTitle(e.target.value)} />
+                <input
+                    type="text"
+                    placeholder='Autor (Obrigatório)'
+                    value={author}
+                    onChange={(e) => setAuthor(e.target.value)} />
+                <input
+                    type="text"
+                    placeholder='Sinopse'
+                    value={synopsis}
+                    onChange={(e) => setSynopsis(e.target.value)} />
+                <input
+                    type="number"
+                    placeholder='Ano de lançamento (Obrigatório)'
+                    value={releaseYear}
+                    onChange={(e) => setReleaseYear(e.target.value)} />
+                <input
+                    type="text"
+                    placeholder='Genêro'
+                    value={genre}
+                    onChange={(e) => setGenre(e.target.value)} />
 
-            <input
-                type="text"
-                placeholder='Autor'
-                value={author}
-                onChange={(e) => setAuthor(e.target.value)} />
+                <button className='btn-submit' type='submit' onClick={handleAddBook}>Add Livro</button>
 
-            <input
-                type="text"
-                placeholder='Sinópse'
-                value={synopsis}
-                onChange={(e) => setSynopsis(e.target.value)} />
-
-            <input
-                type="number"
-                placeholder='Ano de lançamento'
-                value={releaseYear}
-                onChange={(e) => setReleaseYear(e.target.value)}  />
-
-            <input
-                type="text"
-                placeholder='Genêro'
-                value={genre}
-                onChange={(e) => setGenre(e.target.value)} />
-
-            <button type='submit' onClick={handleAddBook}>Add Livro</button>
+            </div>
         </div>
     )
 }

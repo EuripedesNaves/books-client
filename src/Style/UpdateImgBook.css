@@ -1,0 +1,30 @@
+.body-up{
+    background-color: beige;
+    margin-top: 0;
+    display: block;
+}
+
+.btn-submit {
+    border-radius: 10px;
+    border-color: green;
+    font-size: 15px;
+    background-color: green;
+    color: rgb(213, 255, 150);
+    font-weight: bold;
+    width: 20vw;
+
+}
+
+.imgEx{
+    width:20vw;
+    margin:5vw;
+
+}
+
+.highlight{
+    font-size: 2vw;
+    color: rgb(44, 43, 43);
+    font-weight: bold;
+    padding-bottom: 2vw;
+    padding-top: 3vw;
+}

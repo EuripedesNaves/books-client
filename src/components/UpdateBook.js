@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import Utils from '../utils/Utils'
 import { useNavigate, useParams } from 'react-router-dom'
+import '../Style/UpdateBook.css'
 
 export const UpdateBook = () => {
 
@@ -31,16 +32,17 @@ export const UpdateBook = () => {
     }
 
     return (
-        <div className='form'>
+        <div className='form-box'>
+            <h2>Dados para correção</h2>
             <input
                 type="text"
-                placeholder='Título do livro'
+                placeholder='Título do livro (Obrigatório)'
                 value={title}
                 onChange={(e) => setTitle(e.target.value)} />
 
             <input
                 type="text"
-                placeholder='Autor'
+                placeholder='Autor (Obrigatório)'
                 value={author}
                 onChange={(e) => setAuthor(e.target.value)} />
 
@@ -52,7 +54,7 @@ export const UpdateBook = () => {
 
             <input
                 type="number"
-                placeholder='Ano de lançamento'
+                placeholder='Ano de lançamento (Obrigatório)'
                 value={releaseYear}
                 onChange={(e) => setReleaseYear(e.target.value)}  />
 
@@ -62,7 +64,7 @@ export const UpdateBook = () => {
                 value={genre}
                 onChange={(e) => setGenre(e.target.value)} />
 
-            <button type='submit' onClick={handleUpdateBook}>Update Livro</button>
+            <button className='btn-submit' type='submit' onClick={handleUpdateBook}>Update Livro</button>
         </div>
     )
 }

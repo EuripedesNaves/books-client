@@ -1,0 +1,44 @@
+.navbar{
+    background-color: rgb(0, 0, 95);
+    color: #fff;
+    width: 100vw;
+    height: 70px;
+    display: flex;
+    align-items: center;
+    justify-content: left;
+    font-size: 1.5em;
+}
+
+.navbar a{
+    color: #fff;
+    text-decoration: none;
+    margin: 25px 5px 20px 20px;
+
+}
+
+.logout{
+
+    border-radius: 10px;
+    border-color: gray;
+    font-size: 15px;
+    background-color: gray;
+    color: whitesmoke;
+    font-weight: bold;
+    margin: 30px 5px 20px 20px;
+    padding: 5px 20px 5px 20px;
+
+
+}
+
+.new-book{
+
+    border-radius: 10px;
+    border-color: rgb(0, 65, 0);
+    font-size: 15px;
+    background-color: green;
+    color: rgb(213, 255, 150);
+    font-weight: bold;
+    margin: 25px 5px 20px 20px;
+    padding: 5px 20px 5px 20px;
+
+}

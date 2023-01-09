@@ -1,6 +1,8 @@
 import React, { useState } from 'react'
 import { useNavigate, Link } from 'react-router-dom';
 import Utils from '../utils/Utils';
+import '../Style/Login.css'
+
 
 export const Login = () => {
 
@@ -27,23 +29,31 @@ export const Login = () => {
     }
 
     return (
+        <div className='home'>
+        <nav className='navbar'>
+        <h3>
+          Books App
+        </h3>
+        </nav>
+            <h1>Entre na sua conta</h1>
+            <form className='form-box' onSubmit={handleSubmit}>
+                <input
+                    type="email"
+                    placeholder='Qual seu e-mail?'
+                    name='email'
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)} />
+                <input
+                    type="password"
+                    placeholder='Qual sua senha?'
+                    name='Password' value={password}
+                    onChange={(e) => setPassword(e.target.value)} />
 
-        <form onSubmit={handleSubmit}>
-            <input
-                type="email"
-                placeholder='email'
-                name='email'
-                value={email}
-                onChange={(e) => setEmail(e.target.value)} />
-            <input
-                type="password"
-                placeholder='password'
-                name='Password' value={password}
-                onChange={(e) => setPassword(e.target.value)} />
-
-            <button className='btn-login' type='submit'>Login</button>
-            <p>Não possui uma conta?<Link to='/register'><span>Register</span></Link></p>
-        </form>
+                <button className='btn-login' type='submit'>Login</button>
+                <p>Não possui uma conta?</p>
+                <Link to='/register'><button className='btn-register'> Register</button></Link>
+            </form>
+        </div>
     )
 }
 

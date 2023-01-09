@@ -1,4 +1,5 @@
 import React from 'react'
+import Navbar from '../components/Navbar';
 import UpdateBook from '../components/UpdateBook';
 import UpdateImgBook from '../components/UpdateImgBook'
 
@@ -6,7 +7,7 @@ import UpdateImgBook from '../components/UpdateImgBook'
 function ChanceDataBook() {
   return (
     <div>
-      <h1> updateBook </h1>
+      <Navbar/>
       <UpdateBook/>
       <UpdateImgBook/>
     </div>

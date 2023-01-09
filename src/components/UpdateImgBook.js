@@ -2,6 +2,7 @@ import React from 'react'
 import { useState } from "react";
 import Utils from '../utils/Utils';
 import { useNavigate, useParams } from 'react-router-dom'
+import '../Style/UpdateImgBook.css'
 
 
 const UpdateImgBook = () => {
@@ -35,14 +36,14 @@ const UpdateImgBook = () => {
         
         return (
       <>
-      <div style={{ display: 'flex', flexDirection: 'column' }}>
-        <label htmlFor='change-img'>Change Image</label>
-        <p></p>
-        <input id='change-img' type='file' onChange={handleChangeImg} />
+      <div className='body-up'>
+        <div className='highlight'>Clique em explorar para ajustar a capa</div>
+        <input className='input' type='file' onChange={handleChangeImg} />
+        
         {coverImage && (
           <>
-            <img src={coverImage} alt='new cover' width='200' height='200' />
-            <button onClick={handleUpdateImg}>Update Image</button> 
+            <img className='imgEx' src={coverImage} alt='new cover'/>
+            <button className='btn-submit' onClick={handleUpdateImg}>Update Capa</button> 
           </>
         )}
       </div>

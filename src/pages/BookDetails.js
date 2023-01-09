@@ -3,10 +3,15 @@ import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import Utils from '../utils/Utils';
 import Navbar from "../components/Navbar";
+import { useNavigate } from "react-router-dom";
+
+import '../Style/BookDetails.css'
 
 export const BookDetails = () => {
     const { id } = useParams();
     const [book, setBook] = useState("");
+    const navigate = useNavigate();
+
 
     useEffect(() => {
     const BookDetail = async () => {
@@ -17,23 +22,37 @@ export const BookDetails = () => {
         console.log(error)
       }
     };
-      BookDetail()
-    },[id])
-
+    BookDetail()
+  },[id])
+  
+  const deleteOneBook = async (_id) => {
+    try {
+      await Utils.deleteBook(_id)
+      navigate('/book')
+    } catch (error) {
+      console.error(error);
+    }
+  }
 
   return (
     <div>
       <Navbar/>
-    <h1>Detalhe Livro</h1>
-    <img src={book.coverImage} alt={"Cover"} style={{ width: '10vw' }} />
-    
-    <span>{book.title}</span>
-    <span>{book.author}</span>
-    <span>{book.synopsis}</span>
-    <span>{book.releaseYear}</span>
-    <span>{book.genre}</span>
-
+    <h1 className='title'>Detalhe Livro</h1>
+    <img className='imgCover' src={book.coverImage} alt={"Cover"} />
+    <p></p>
+    <span className='book'><b>Título do livro:</b> {book.title}</span>
+    <p></p>
+    <span className='author'><b>Autor:</b> {book.author}</span>
+    <p></p>
+    <span className='release'><b>Ano de lançamento:</b> {book.releaseYear}</span>
+    <p></p>
+    <span className='genre'><b>Gênero:</b> {book.genre}</span>
+    <p></p>
+    <span className='sinopsys'><b>Sinopse:</b> {book.synopsis}</span>
+    <p></p>
+    <button className="btn-delete" onClick={() => deleteOneBook(book._id)}>Delete</button>
     </div>
+    
   )
 }
 
